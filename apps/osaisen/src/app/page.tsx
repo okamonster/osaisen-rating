@@ -14,9 +14,11 @@ export default function Home() {
 				className={styles.mainLogo}
 			/>
 			<div className={styles.actions}>
-				<Button color="var(--button-primary-color)" w="100%">
-					はじめる
-				</Button>
+				<Link href="/rates">
+					<Button color="var(--button-primary-color)" w="100%">
+						はじめる
+					</Button>
+				</Link>
 				<Link href="/help">
 					<Button
 						color="var(--button-primary-color)"
