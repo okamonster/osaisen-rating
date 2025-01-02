@@ -1,0 +1,30 @@
+.form {
+	display: grid;
+	gap: 20px;
+
+	.yearInputArea {
+		display: flex;
+		gap: 5px;
+		align-items: end;
+
+		.text {
+			font-size: 16px;
+		}
+	}
+
+	.amountInputArea {
+		display: flex;
+		gap: 5px;
+		align-items: end;
+
+		.text {
+			font-size: 16px;
+		}
+	}
+
+	.highlightText {
+		font-size: 18px;
+		font-weight: bold;
+		font-family: serif;
+	}
+}

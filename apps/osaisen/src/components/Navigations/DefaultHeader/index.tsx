@@ -1,13 +1,14 @@
 'use client'
 import { Button } from '@mantine/core'
 import { useRouter } from 'next/navigation'
+import type { ReactNode } from 'react'
 import { FaChevronLeft } from 'react-icons/fa'
 import styles from './style.module.css'
 
 type Props = {
 	title: string
 }
-export const DefaultHeader = ({ title }: Props) => {
+export const DefaultHeader = ({ title }: Props): ReactNode => {
 	const { back } = useRouter()
 	return (
 		<header className={styles.header}>
