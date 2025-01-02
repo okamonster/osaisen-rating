@@ -1,0 +1,17 @@
+.container {
+	width: 100%;
+	padding: 30px;
+	display: grid;
+	place-items: center;
+	gap: 16px;
+
+	.mainLogo {
+		width: 100%;
+	}
+
+	.actions {
+		width: 100%;
+		display: grid;
+		gap: 16px;
+	}
+}
