@@ -30,20 +30,4 @@
 			width: 150px;
 		}
 	}
-
-	.detailsContainer {
-		display: grid;
-		border: solid 5px var(--border-gray-color);
-		background-color: var(--backgorund-gray-color);
-		border-radius: 12px;
-		gap: 16px;
-		padding: 16px;
-
-		.details {
-			display: flex;
-			gap: 10px;
-			align-items: center;
-			justify-content: center;
-		}
-	}
 }
