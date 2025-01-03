@@ -1,0 +1,49 @@
+.container {
+	padding: 30px;
+	display: grid;
+	gap: 16px;
+
+	.title {
+		font-size: 16px;
+		font-weight: bold;
+		font-family: serif;
+	}
+
+	.text {
+		font-size: 14px;
+	}
+
+	.results {
+		display: grid;
+		gap: 3px;
+		justify-content: center;
+		align-items: center;
+
+		.resultText {
+			font-size: 50px;
+			font-weight: bold;
+			font-family: serif;
+			text-align: center;
+		}
+
+		.resultImage {
+			width: 150px;
+		}
+	}
+
+	.detailsContainer {
+		display: grid;
+		border: solid 5px var(--border-gray-color);
+		background-color: var(--backgorund-gray-color);
+		border-radius: 12px;
+		gap: 16px;
+		padding: 16px;
+
+		.details {
+			display: flex;
+			gap: 10px;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}
