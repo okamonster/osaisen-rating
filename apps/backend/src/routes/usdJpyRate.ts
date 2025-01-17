@@ -25,6 +25,10 @@ app.get('/:year', async (c) => {
 	const db = drizzle(c.env.DB)
 	const year = Number.parseInt(c.req.param('year'), 10)
 
+	if (Number.isNaN(year)) {
+		return c.json({ error: 'Invalid year' }, 400)
+	}
+
 	try {
 		const rate = await getUsdJpyRateByYearOperation(db, year)
 		return c.json(rate)
