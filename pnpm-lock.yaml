@@ -26,6 +26,9 @@ importers:
       '@biomejs/biome':
         specifier: 1.9.4
         version: 1.9.4
+      '@osaisen/common':
+        specifier: workspace:*
+        version: link:../../packages/common
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -122,6 +125,8 @@ importers:
       typescript:
         specifier: ^5
         version: 5.5.4
+
+  packages/common: {}
 
   packages/eslint-config:
     devDependencies:
