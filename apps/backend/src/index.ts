@@ -1,7 +1,8 @@
 import { drizzle } from 'drizzle-orm/d1'
 import { Hono } from 'hono'
+import { usdJpyYearsRatesData } from '~/seed/usdJpyYearsRatesData'
 import { UsdJpyYearsRates } from './drizzle/schema'
-import { usdJpyYearsRatesData } from './seed/usdJpyYearsRatesData'
+import usdJpyRate from './routes/usdJpyRate'
 
 type Bindings = {
 	DB: D1Database
@@ -16,12 +17,5 @@ app.post('/init', async (c) => {
 	return c.json(result)
 })
 
-/** USD/JPYレート取得 */
-app.get('/usd-jpy-rate', async (c) => {
-	const db = drizzle(c.env.DB)
-
-	const result = await db.select().from(UsdJpyYearsRates).all()
-
-	return c.json(result)
-})
+app.route('/usd-jpy-rate', usdJpyRate)
 export default app
