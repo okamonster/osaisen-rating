@@ -85,6 +85,9 @@ importers:
       '@mantine/notifications':
         specifier: ^7.15.2
         version: 7.15.2(@mantine/core@7.15.2)(@mantine/hooks@7.15.2)(react-dom@19.0.0)(react@19.0.0)
+      '@osaisen/common':
+        specifier: workspace:*
+        version: link:../../packages/common
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
