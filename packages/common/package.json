@@ -1,0 +1,6 @@
+{
+	"name": "@osaisen/common",
+	"module": "./src/index.ts",
+	"type": "module",
+	"main": "./src/index.ts"
+}
