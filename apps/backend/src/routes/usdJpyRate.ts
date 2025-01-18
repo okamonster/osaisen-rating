@@ -1,7 +1,9 @@
 import { drizzle } from 'drizzle-orm/d1'
 import { Hono } from 'hono'
-import { getAllUsdJpyRateOperation } from '~/features/rates/operations/getAllUsdJpyRate'
-import { getUsdJpyRateByYearOperation } from '~/features/rates/operations/getUsdJpyRateByYear'
+import {
+	getAllUsdJpyRateOperation,
+	getUsdJpyRateByYearOperation,
+} from '~/infrastructure/operations/usdJpyRateOperations'
 
 type Bindings = {
 	DB: D1Database
