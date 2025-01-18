@@ -39,4 +39,6 @@ app.get('/:year', async (c) => {
 	}
 })
 
+app.post('/:id/submit', async (c) => {})
+
 export default app

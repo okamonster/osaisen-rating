@@ -2,8 +2,8 @@ import { drizzle } from 'drizzle-orm/d1'
 import { Hono } from 'hono'
 import { usdJpyYearsRatesData } from '~/seed/usdJpyYearsRatesData'
 import { UsdJpyYearsRates } from './drizzle/schema'
+import rating from './routes/rating'
 import result from './routes/result'
-import usdJpyRate from './routes/usdJpyRate'
 
 type Bindings = {
 	DB: D1Database
@@ -18,7 +18,7 @@ app.post('/init', async (c) => {
 	return c.json(result)
 })
 
-app.route('/usd-jpy-rate', usdJpyRate)
+app.route('/rating', rating)
 
 app.route('/result', result)
 export default app

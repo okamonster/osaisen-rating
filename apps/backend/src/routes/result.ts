@@ -1,6 +1,6 @@
 import { drizzle } from 'drizzle-orm/d1'
 import { Hono } from 'hono'
-import { getResult } from '~/features/result/usecase/getKeepProfitResult'
+import { getMesurementResult } from '~/features/result/usecase/getMesurementResult'
 import { getUsdJpyRateByYearOperation } from '~/infrastructure/operations/usdJpyRateOperations'
 
 type Bindings = {
@@ -22,7 +22,7 @@ app.post('/', async (c) => {
 		const pastUsdJpyRate = await getUsdJpyRateByYearOperation(db, pastYear)
 		const latestUsdJpyRate = await getUsdJpyRateByYearOperation(db, latestYear)
 
-		const keepProfitResult = await getResult(
+		const keepProfitResult = await getMesurementResult(
 			pastYear,
 			pastAmount,
 			pastUsdJpyRate.usdJpyRate,

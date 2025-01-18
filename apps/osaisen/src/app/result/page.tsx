@@ -1,8 +1,8 @@
-import { Button, RingProgress } from '@mantine/core'
-import type { KeepProfitResult } from '@osaisen/common'
+import { Button } from '@mantine/core'
+import type { MesurementResult } from '@osaisen/common'
 import dayjs from 'dayjs'
 import Image from 'next/image'
-import { FaArrowUp, FaTwitter } from 'react-icons/fa'
+import { FaTwitter } from 'react-icons/fa'
 import { ResultDetail } from '~/features/result/components/ResultDetail'
 import styles from './page.module.css'
 
@@ -13,7 +13,7 @@ type Props = {
 export default async function Page({ searchParams }: Props) {
 	const { year, amount } = await searchParams
 
-	const getKeepProfitResult = async (): Promise<KeepProfitResult> => {
+	const getMesurementResult = async (): Promise<MesurementResult> => {
 		const latestYear = dayjs().year()
 		const res = await fetch(`${process.env.API_BASE_URL}/result`, {
 			method: 'POST',
@@ -33,7 +33,7 @@ export default async function Page({ searchParams }: Props) {
 		return result
 	}
 
-	const keepProfitResult = await getKeepProfitResult()
+	const keepProfitResult = await getMesurementResult()
 
 	return (
 		<div className={styles.container}>
