@@ -9,8 +9,9 @@
 		"studio": "drizzle-kit studio"
 	},
 	"dependencies": {
-		"@osaisen/common": "workspace:*",
 		"@biomejs/biome": "1.9.4",
+		"@osaisen/common": "workspace:*",
+		"dayjs": "^1.11.13",
 		"dotenv": "^16.4.7",
 		"dotenv-cli": "^8.0.0",
 		"drizzle-orm": "^0.38.3",
