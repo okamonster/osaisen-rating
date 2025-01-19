@@ -7,25 +7,19 @@ import { ResultDetail } from '~/features/result/components/ResultDetail'
 import styles from './page.module.css'
 
 type Props = {
-	searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+	params: { id: string }
 }
+export default async function Page({ params }: Props) {
+	const id = params.id
 
-export default async function Page({ searchParams }: Props) {
-	const { year, amount } = await searchParams
-
-	const getMesurementResult = async (): Promise<MesurementResult> => {
-		const latestYear = dayjs().year()
-		const res = await fetch(`${process.env.API_BASE_URL}/result`, {
-			method: 'POST',
+	const getMesurementResult = async (id: string): Promise<MesurementResult> => {
+		const res = await fetch(`${process.env.API_BASE_URL}/result/${id}`, {
+			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({
-				pastYear: year,
-				latestYear: latestYear,
-				pastAmount: amount,
-			}),
 		})
+
 		if (!res.ok) {
 			throw new Error('Failed to fetch')
 		}
@@ -33,19 +27,19 @@ export default async function Page({ searchParams }: Props) {
 		return result
 	}
 
-	const keepProfitResult = await getMesurementResult()
+	const mesurementResult = await getMesurementResult(id)
 
 	return (
 		<div className={styles.container}>
 			<p className={styles.title}>
-				{keepProfitResult.year}年に{keepProfitResult.pastOfferingAmount}
+				{mesurementResult.pastYear}年に{mesurementResult.pastOfferingAmount}
 				円のお賽銭をした場合
 				<br />
 				ご利益をキープするには...
 			</p>
 			<div className={styles.results}>
 				<p className={styles.resultText}>
-					{Math.floor(keepProfitResult.neededKeepAmount)}円
+					{Math.floor(mesurementResult.neededKeepAmount)}円
 				</p>
 				<Image
 					src="/images/osaisen-bg.png"
@@ -59,9 +53,9 @@ export default async function Page({ searchParams }: Props) {
 			<p className={styles.text}>のお賽銭が必要です</p>
 
 			<ResultDetail
-				year={keepProfitResult.year}
-				pastOfferingAmount={keepProfitResult.pastOfferingAmount}
-				neededKeepAmount={keepProfitResult.neededKeepAmount}
+				year={mesurementResult.pastYear}
+				pastOfferingAmount={mesurementResult.pastOfferingAmount}
+				neededKeepAmount={mesurementResult.neededKeepAmount}
 			/>
 			<Button>
 				<FaTwitter />
