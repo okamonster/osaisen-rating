@@ -1,4 +1,5 @@
 export type MesurementResult = {
+	id: string
 	pastYear: number
 	latestYear: number
 	neededKeepAmount: number
@@ -9,7 +10,7 @@ export type MesurementResult = {
 
 export type CreateMesurementResultDto = Omit<
 	MesurementResult,
-	'createdAt' | 'updatedAt'
+	'id' | 'createdAt' | 'updatedAt'
 > & {
 	createdAt: string
 	updatedAt: string

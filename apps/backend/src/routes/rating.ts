@@ -40,7 +40,8 @@ app.get('/:year', async (c) => {
 	}
 })
 
-app.post('/:id/submit', async (c) => {
+/** 結果登録 */
+app.post('/submit/:id', async (c) => {
 	const db = drizzle(c.env.DB)
 	const id = c.req.param('id')
 	const { pastYear, latestYear, pastOfferingAmount } = await c.req.json<{

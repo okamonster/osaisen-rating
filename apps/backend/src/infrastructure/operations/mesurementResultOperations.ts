@@ -16,6 +16,7 @@ export const fetchMesurementResultByIdOperation = async (
 		.where(eq(MesurementResults.id, id))
 
 	const mesurementResult: MesurementResult = {
+		id: result[0].id,
 		pastYear: result[0].pastYear,
 		latestYear: result[0].latestYear,
 		neededKeepAmount: result[0].neededKeepAmount,
