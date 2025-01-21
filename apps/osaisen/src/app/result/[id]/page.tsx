@@ -13,12 +13,15 @@ export default async function Page({ params }: Props) {
 	const id = params.id
 
 	const getMesurementResult = async (id: string): Promise<MesurementResult> => {
-		const res = await fetch(`${process.env.API_BASE_URL}/result/${id}`, {
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json',
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_API_BASE_URL}/result/${id}`,
+			{
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+				},
 			},
-		})
+		)
 
 		if (!res.ok) {
 			throw new Error('Failed to fetch')
