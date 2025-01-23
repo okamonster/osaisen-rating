@@ -1,2 +1,2 @@
 export * from './entities/index'
-export * from './entities/KeepProfitResult'
+export * from './entities/MesurementResult'
