@@ -1,8 +1,7 @@
-import { Button } from '@mantine/core'
 import type { MesurementResult } from '@osaisen/common'
 import Image from 'next/image'
-import { FaTwitter } from 'react-icons/fa'
 import { ResultDetail } from '~/features/result/components/ResultDetail'
+import { TweetButton } from '~/features/result/components/tweetButton'
 import styles from './page.module.css'
 
 export const runtime = 'edge'
@@ -62,10 +61,12 @@ export default async function Page({ params }: Props) {
 				pastOfferingAmount={mesurementResult.pastOfferingAmount}
 				neededKeepAmount={mesurementResult.neededKeepAmount}
 			/>
-			<Button>
-				<FaTwitter />
-				シェアする
-			</Button>
+			<TweetButton
+				pastYear={mesurementResult.pastYear}
+				latestYear={mesurementResult.latestYear}
+				pastOfferingAmount={mesurementResult.pastOfferingAmount}
+				neededKeepAmount={mesurementResult.neededKeepAmount}
+			/>
 		</div>
 	)
 }
