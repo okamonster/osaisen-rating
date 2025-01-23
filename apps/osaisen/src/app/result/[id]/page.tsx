@@ -1,10 +1,11 @@
 import { Button } from '@mantine/core'
 import type { MesurementResult } from '@osaisen/common'
-import dayjs from 'dayjs'
 import Image from 'next/image'
 import { FaTwitter } from 'react-icons/fa'
 import { ResultDetail } from '~/features/result/components/ResultDetail'
 import styles from './page.module.css'
+
+export const runtime = 'edge'
 
 type Props = {
 	params: { id: string }
