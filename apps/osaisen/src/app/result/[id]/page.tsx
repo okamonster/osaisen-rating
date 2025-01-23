@@ -8,10 +8,11 @@ import styles from './page.module.css'
 export const runtime = 'edge'
 
 type Props = {
-	params: { id: string }
+	params: Promise<{ id: string }>
 }
+
 export default async function Page({ params }: Props) {
-	const id = params.id
+	const { id } = await params
 
 	const getMesurementResult = async (id: string): Promise<MesurementResult> => {
 		const res = await fetch(
