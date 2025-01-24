@@ -22,7 +22,7 @@ export const TweetButton = ({
 }: Props): ReactNode => {
 	const shareUrl = useTwitterShare(
 		`🪙${pastYear}年にした${Math.floor(pastOfferingAmount)}円のお賽銭のご利益をキープするには
-        ${dayjs().year}年では${Math.floor(neededKeepAmount)}円のお賽銭が必要です🪙`,
+        ${dayjs().year()}年では${Math.floor(neededKeepAmount)}円のお賽銭が必要です🪙`,
 		process.env.APP_URL ?? '',
 		['お賽銭レーティング'],
 	)
