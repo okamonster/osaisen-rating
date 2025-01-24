@@ -5,7 +5,6 @@ import { MantineProvider } from '@mantine/core'
 import '@mantine/core/styles.css'
 import { Notifications } from '@mantine/notifications'
 import '@mantine/notifications/styles.css'
-import Head from 'next/head'
 import styles from './layout.module.css'
 
 export default function RootLayout({
@@ -15,7 +14,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="ja">
-			<Head>
+			<head>
 				<meta charSet="utf-8" lang="ja" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<title>お賽銭レーティング</title>
@@ -32,7 +31,7 @@ export default function RootLayout({
 				/>
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:site" content="@makura_nageru" />
-			</Head>
+			</head>
 			<body className={styles.container}>
 				<MantineProvider>
 					<Notifications position="top-center" />
