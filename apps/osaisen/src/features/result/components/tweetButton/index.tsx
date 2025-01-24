@@ -23,7 +23,7 @@ export const TweetButton = ({
 	const shareUrl = useTwitterShare(
 		`🪙${pastYear}年にした${Math.floor(pastOfferingAmount)}円のお賽銭のご利益をキープするには
         ${dayjs().year()}年では${Math.floor(neededKeepAmount)}円のお賽銭が必要です🪙`,
-		process.env.APP_URL ?? '',
+		process.env.NEXT_PUBLIC_APP_URL ?? '',
 		['お賽銭レーティング'],
 	)
 	return (
