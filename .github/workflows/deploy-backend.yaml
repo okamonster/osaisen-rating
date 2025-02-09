@@ -31,7 +31,7 @@ jobs:
               run: pnpm install --frozen-lockfile
 
             - name: Drizzle Generate
-              run: pnpm drizzle generate
+              run: pnpm generate
             
             - name: Drizzle Migration
               run: pnpm remote:migration
