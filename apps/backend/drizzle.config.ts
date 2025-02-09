@@ -5,11 +5,6 @@ const productionConfig = {
 	out: './src/drizzle/migrations',
 	dialect: 'sqlite',
 	driver: 'd1-http',
-	dbCredentials: {
-		accountId: process.env.ACCOUNT_ID ?? '',
-		databaseId: process.env.DATABASE_ID ?? '',
-		token: process.env.TOKEN ?? '',
-	},
 } satisfies Config
 
 const localConfig = {
