@@ -17,7 +17,7 @@ jobs:
 
             - name: Setup Wrangler.toml
               run: |
-                printf "%s" "${{ secrets.WRANGLER_TOML }}" > wrangler.toml
+                printf "%s" '${{ secrets.WRANGLER_TOML }}' > wrangler.toml
             - name: Setup pnpm 
               uses: pnpm/action-setup@v2
               with:
