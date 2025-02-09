@@ -1,0 +1,42 @@
+name: deploy osaisen backend
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - 'apps/backend/src/**'
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v4
+            
+            - name: Setup pnpm 
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 9.0.0
+            
+            - name: Setup Node
+              uses: actions/setup-node@v3
+              with:
+                node-version: 20
+                cache: pnpm
+                cache-dependency-path: pnpm-lock.yaml
+
+            - name: Setup Wrangler.toml
+              run: echo ${{ secrets.WRANGLER_TOML }} > wrangler.toml
+
+            - name: Install Dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Drizzle Generate
+              run: pnpm drizzle generate
+            
+            - name: Drizzle Migration
+              run: pnpm remote:migration
+
+            - name: Deploy
+              run: pnpm wrangler deploy --minify
+              env: 
+                NODE_ENV: production
