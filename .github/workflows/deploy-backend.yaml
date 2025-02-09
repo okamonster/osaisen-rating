@@ -16,7 +16,7 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Setup Wrangler.toml
-              run: echo "${{ secrets.WRANGLER_TOML }}" > wrangler.toml
+              run: echo `${{ secrets.WRANGLER_TOML }}` > wrangler.toml
 
             - name: Setup pnpm 
               uses: pnpm/action-setup@v2
