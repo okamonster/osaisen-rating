@@ -11,7 +11,10 @@ jobs:
         steps:
             - name: Checkout Repo
               uses: actions/checkout@v4
-            
+
+            - name: Setup Wrangler.toml
+              run: echo "${{ secrets.WRANGLER_TOML }}" > wrangler.toml
+
             - name: Setup pnpm 
               uses: pnpm/action-setup@v2
               with:
@@ -23,9 +26,6 @@ jobs:
                 node-version: 20
                 cache: pnpm
                 cache-dependency-path: pnpm-lock.yaml
-
-            - name: Setup Wrangler.toml
-              run: echo ${{ secrets.WRANGLER_TOML }} > wrangler.toml
 
             - name: Install Dependencies
               run: pnpm install --frozen-lockfile
