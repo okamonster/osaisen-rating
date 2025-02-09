@@ -1,5 +1,5 @@
 import { integer, real, sqliteTable, text } from 'drizzle-orm/sqlite-core'
-
+//test
 export const UsdJpyYearsRates = sqliteTable(
 	'usd_jpy_years_rates',
 	{
