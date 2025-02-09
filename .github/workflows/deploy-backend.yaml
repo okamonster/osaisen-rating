@@ -4,10 +4,13 @@ on:
         branches:
             - main
         paths:
-            - 'apps/backend/src/**'
+            - apps/backend/src/**
 jobs:
     deploy:
         runs-on: ubuntu-latest
+        defaults:
+          run:
+            working-directory: apps/backend
         steps:
             - name: Checkout Repo
               uses: actions/checkout@v4
