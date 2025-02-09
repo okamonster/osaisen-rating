@@ -24,6 +24,9 @@ jobs:
                 cache: pnpm
                 cache-dependency-path: pnpm-lock.yaml
 
+            - name: Setup Wrangler.toml
+              run: echo ${{ secrets.WRANGLER_TOML }} > wrangler.toml
+
             - name: Install Dependencies
               run: pnpm install --frozen-lockfile
 
@@ -34,4 +37,6 @@ jobs:
               run: pnpm remote:migration
 
             - name: Deploy
-              run: pnpm deploy
+              run: pnpm wrangler deploy --minify
+              env: 
+                NODE_ENV: production
