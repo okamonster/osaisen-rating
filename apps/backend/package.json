@@ -7,7 +7,7 @@
 		"lint:tsc": "tsc --noEmit",
 		"generate": "drizzle-kit generate",
 		"local:migration": "wrangler d1 migrations apply osaisen --local",
-		"remote:migration": "wrangler d1 migrations apply osaisen --remote",
+		"remote:migration": "wrangler d1 migrations apply osaisen",
 		"studio": "drizzle-kit studio"
 	},
 	"dependencies": {
