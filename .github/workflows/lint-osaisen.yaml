@@ -1,14 +1,14 @@
-name: lint osaisen backend
+name: lint osaisen frontend
 on:
     push:
         paths:
-            - apps/backend/src/**
+            - apps/osaisen/src/**
 jobs:
     deploy:
         runs-on: ubuntu-latest
         defaults:
           run:
-            working-directory: apps/backend
+            working-directory: apps/osaisen
         steps:
             - name: Checkout Repo
               uses: actions/checkout@v4
@@ -32,4 +32,4 @@ jobs:
               run: pnpm lint:tsc
 
             - name: lint
-              run: pnpm lint
+              run: pnpm lint:biome
