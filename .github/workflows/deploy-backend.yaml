@@ -40,11 +40,7 @@ jobs:
             - name: Drizzle Generate
               run: pnpm generate
             
-            - name: Drizzle Migration
-              run: pnpm remote:migration
-              env:
-                CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-
+          
             - name: Deploy
               run: pnpm wrangler deploy --minify
               env: 
