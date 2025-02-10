@@ -1,0 +1,35 @@
+name: lint osaisen frontend
+on:
+    push:
+        paths:
+            - apps/osaisen/src/**
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        defaults:
+          run:
+            working-directory: apps/osaisen
+        steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v4
+
+            - name: Setup pnpm 
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 9.0.0
+            
+            - name: Setup Node
+              uses: actions/setup-node@v3
+              with:
+                node-version: 20
+                cache: pnpm
+                cache-dependency-path: pnpm-lock.yaml
+
+            - name: Install Dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: tsc
+              run: pnpm lint:tsc
+
+            - name: lint
+              run: pnpm lint:biome
