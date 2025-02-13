@@ -3,11 +3,14 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { usdJpyYearsRatesData } from '~/seed/usdJpyYearsRatesData'
 import { UsdJpyYearsRates } from './drizzle/schema'
+import { createUsdJpyYearsRate } from './features/UsdJpyYearsRate/usecase/createUsdJpyYearsRate'
 import rating from './routes/rating'
 import result from './routes/result'
 
 type Bindings = {
 	DB: D1Database
+	EXCHANGERATE_BASE_URL: string
+	EXCHANGERATE_API_KEY: string
 }
 const app = new Hono<{ Bindings: Bindings }>()
 
@@ -31,4 +34,23 @@ app.post('/init', async (c) => {
 app.route('/rating', rating)
 
 app.route('/result', result)
-export default app
+
+const scheduled: ExportedHandlerScheduledHandler<Bindings> = async (
+	event,
+	env,
+	ctx,
+) => {
+	const db = drizzle(env.DB)
+	ctx.waitUntil(
+		createUsdJpyYearsRate(
+			db,
+			env.EXCHANGERATE_BASE_URL,
+			env.EXCHANGERATE_API_KEY,
+		),
+	)
+}
+
+export default {
+	fetch: app.fetch,
+	scheduled,
+}

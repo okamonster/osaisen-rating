@@ -3,6 +3,19 @@ import { eq } from 'drizzle-orm'
 import type { DrizzleD1Database } from 'drizzle-orm/d1'
 import { UsdJpyYearsRates } from '~/drizzle/schema'
 
+export const createUsdJpyYearsRateOperation = async (
+	db: DrizzleD1Database,
+	dto: UsdJpyRate,
+): Promise<void> => {
+	await db
+		.insert(UsdJpyYearsRates)
+		.values({
+			year: dto.year,
+			usdToJpyRate: dto.usdJpyRate,
+		})
+		.execute()
+}
+
 export const getAllUsdJpyRateOperation = async (
 	db: DrizzleD1Database,
 ): Promise<Array<UsdJpyRate>> => {
