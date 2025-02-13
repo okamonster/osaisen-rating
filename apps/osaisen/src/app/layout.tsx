@@ -5,6 +5,8 @@ import { MantineProvider } from '@mantine/core'
 import '@mantine/core/styles.css'
 import { Notifications } from '@mantine/notifications'
 import '@mantine/notifications/styles.css'
+import GoogleAdsense from '~/components/Adsense/GoogleAdsense'
+
 import styles from './layout.module.css'
 
 export default function RootLayout({
@@ -38,6 +40,7 @@ export default function RootLayout({
 					<main className={styles.main}>{children}</main>
 				</MantineProvider>
 			</body>
+			<GoogleAdsense pId={process.env.ADD_PID ?? ''} />
 		</html>
 	)
 }
