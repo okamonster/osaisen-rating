@@ -30,6 +30,7 @@ export default function Home() {
 						使い方
 					</Button>
 				</Link>
+				<p className={styles.copyright}>©2025 OCHA.dev</p>
 			</div>
 		</div>
 	)
