@@ -6,9 +6,6 @@ type Props = {
 }
 
 const GoogleAdsense = ({ pId }: Props): ReactNode => {
-	if (process.env.NODE_ENV !== 'production') {
-		return null
-	}
 	return (
 		<Script
 			async
