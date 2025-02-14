@@ -40,7 +40,7 @@ export default function RootLayout({
 					<main className={styles.main}>{children}</main>
 				</MantineProvider>
 			</body>
-			<GoogleAdsense pId={process.env.ADD_PID ?? ''} />
+			<GoogleAdsense pId="ca-pub-1708441864695877" />
 		</html>
 	)
 }
