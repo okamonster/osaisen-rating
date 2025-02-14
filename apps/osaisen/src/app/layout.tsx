@@ -33,6 +33,7 @@ export default function RootLayout({
 				/>
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:site" content="@makura_nageru" />
+				<GoogleAdsense pId="ca-pub-1708441864695877" />
 			</head>
 			<body className={styles.container}>
 				<MantineProvider>
@@ -40,7 +41,6 @@ export default function RootLayout({
 					<main className={styles.main}>{children}</main>
 				</MantineProvider>
 			</body>
-			<GoogleAdsense pId="ca-pub-1708441864695877" />
 		</html>
 	)
 }
